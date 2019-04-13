@@ -5,7 +5,7 @@
 ### Import
 
 ```javascript
-import * as StateHelper from 'starter-lib/dist/redux/state.helper';
+import * as StateHelper from 'helloworld-lib/dist/redux/state.helper';
 ```
 
 ### `StateHelper.createSimpleOperation`

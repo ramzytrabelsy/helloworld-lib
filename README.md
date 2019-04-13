@@ -1,6 +1,6 @@
-# Starter Library
+# Hello World Library
 
-![](https://img.shields.io/david/emiketic/emiketic-starter-lib.svg?style=for-the-badge)
+![](https://img.shields.io/david/emiketic/helloworld-lib.svg?style=for-the-badge)
 
 A collection of common utilities.
 
