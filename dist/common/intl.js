@@ -19,8 +19,19 @@ function defineLocale(localeCode) {
     timeZone: TIME_ZONE,
     currency: 'USD'
   }, defaults);
+  var translations = {};
   var locale = {
+    setTranslations: function setTranslations(_translations) {
+      translations = _translations;
+    },
+    updateTranslations: function updateTranslations(_translations) {
+      translations = _objectSpread({}, translations, {
+        _translations: _translations
+      });
+    },
     $t: function $t(text) {
+      text = translations[text] || text;
+
       for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
         args[_key - 1] = arguments[_key];
       }

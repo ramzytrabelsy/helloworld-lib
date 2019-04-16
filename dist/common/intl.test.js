@@ -9,6 +9,18 @@ $intl.current = $intl.fr = defineLocale('fr', {
   timeZone: 'Europe/Paris',
   currency: 'EUR'
 });
+$intl.current.setTranslations({
+  'Welcome %{}': 'Bienvenu %{}'
+});
+test('$intl.current.$t', function () {
+  var _$intl$current;
+
+  var input = ['Welcome %{}', 'World'];
+
+  var output = (_$intl$current = $intl.current).$t.apply(_$intl$current, input);
+
+  expect(output.replace(/\s/gi, ' ')).toEqual('Bienvenu World');
+});
 test('$intl.current.number', function () {
   var input = 123456.789;
   var output = $intl.current.number(input);

@@ -7,8 +7,19 @@ export function defineLocale(localeCode, defaults = {}) {
     ...defaults,
   };
 
+  let translations = {};
+
   const locale = {
+    setTranslations(_translations) {
+      translations = _translations;
+    },
+
+    updateTranslations(_translations) {
+      translations = { ...translations, _translations };
+    },
+
     $t(text, ...args) {
+      text = translations[text] || text;
       args.forEach((arg) => (text = text.replace('%{}', arg)));
       return text;
     },

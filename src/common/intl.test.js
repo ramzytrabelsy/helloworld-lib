@@ -7,6 +7,16 @@ $intl.current = $intl.fr = defineLocale('fr', {
   currency: 'EUR',
 });
 
+$intl.current.setTranslations({
+  'Welcome %{}': 'Bienvenu %{}',
+});
+
+test('$intl.current.$t', () => {
+  const input = ['Welcome %{}', 'World'];
+  const output = $intl.current.$t(...input);
+  expect(output.replace(/\s/gi, ' ')).toEqual('Bienvenu World');
+});
+
 test('$intl.current.number', () => {
   const input = 123456.789;
   const output = $intl.current.number(input);
