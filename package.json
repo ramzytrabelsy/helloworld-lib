@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js ./",
     "lint:critical": "eslint --no-eslintrc --config .eslintrc.critical.json ./",
     "format": "prettier './**/*.{md,json,js,css,scss}' --write && eslint -o /dev/null --ext .js --fix ./ || true",
-    "test": "NODE_ICU_DATA=node_modules/full-icu jest",
+    "test": "NODE_ICU_DATA=$(dirname $(node-full-icu-path)) jest",
     "build": "babel --source-maps true ./src/ -d ./dist/",
     "build:watch": "babel -w --source-maps true ./src/ -d ./dist/"
   },
