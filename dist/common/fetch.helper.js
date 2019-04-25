@@ -63,6 +63,8 @@ function encode(result, name, value) {
         return encode(result, "".concat(name, "[").concat(encodeURIComponent(key), "]"), value[key], mode);
       });
     }
+  } else if (typeof value === 'undefined') {
+    result[name] = '';
   } else {
     result[name] = encodeURIComponent(String(value));
   }

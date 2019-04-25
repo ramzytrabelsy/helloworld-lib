@@ -27,6 +27,8 @@ export function encode(result, name, value, mode = 'querystring') {
     } else {
       Object.keys(value).forEach((key) => encode(result, `${name}[${encodeURIComponent(key)}]`, value[key], mode));
     }
+  } else if (typeof value === 'undefined') {
+    result[name] = '';
   } else {
     result[name] = encodeURIComponent(String(value));
   }
