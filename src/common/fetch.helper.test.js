@@ -16,6 +16,7 @@ test('FetchHelper.toQueryString with empty payload', () => {
 
 test('FetchHelper.toQueryString with flat payload', () => {
   const input = {
+    undefined: undefined,
     null: null,
     boolean1: false,
     boolean2: true,
@@ -30,7 +31,7 @@ test('FetchHelper.toQueryString with flat payload', () => {
   const output = FetchHelper.toQueryString(input);
 
   expect(output).toBe(
-    'null=null&boolean1=false&boolean2=true&number1=0&number2=1&number3=-1&string1=hello&string2=world&date=2018-01-01T00:00:00.000Z',
+    'undefined=&null=null&boolean1=false&boolean2=true&number1=0&number2=1&number3=-1&string1=hello&string2=world&date=2018-01-01T00:00:00.000Z',
   );
 });
 

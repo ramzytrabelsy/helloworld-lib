@@ -24,9 +24,9 @@ for project in "${TARGETS[@]}"; do
     (
       cd "../${project}"
       if [ -f yarn.lock ]; then
-        yarn add "file:lib/${PACKAGE_NAME}.tgz"
+        yarn add "file:./lib/${PACKAGE_NAME}.tgz"
       else
-        npm install "file:lib/${PACKAGE_NAME}.tgz"
+        npm install "file:./lib/${PACKAGE_NAME}.tgz"
       fi
     )
 done
