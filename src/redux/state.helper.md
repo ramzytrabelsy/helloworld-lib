@@ -13,9 +13,9 @@ import * as StateHelper from 'helloworld-lib/dist/redux/state.helper';
 ```javascript
 const MODULE = 'Task';
 
-const INITIAL_STATE = {
+const defineInitialState = () => ({
   item: null,
-};
+});
 
 const $selectItem = StateHelper.createSimpleOperation(MODULE, 'selectItem', (item) => {
   return (dispatch) => {
@@ -27,7 +27,7 @@ const $selectItem = StateHelper.createSimpleOperation(MODULE, 'selectItem', (ite
   };
 });
 
-export function reducer(state = INITIAL_STATE, action) {
+export function reducer(state = defineInitialState(), action) {
   switch (action.type) {
     case $selectItem.ACTION:
       return {
@@ -47,9 +47,9 @@ export function reducer(state = INITIAL_STATE, action) {
 ```javascript
 const MODULE = 'Task';
 
-const INITIAL_STATE = {
+const defineInitialState = () => ({
   tasks: null,
-};
+});
 
 const $fetchTasks = StateHelper.createAsyncOperation(MODULE, 'fetchTasks', () => {
   return (dispatch) => {
@@ -61,7 +61,7 @@ const $fetchTasks = StateHelper.createAsyncOperation(MODULE, 'fetchTasks', () =>
   };
 });
 
-export function reducer(state = INITIAL_STATE, action) {
+export function reducer(state = defineInitialState(), action) {
   switch (action.type) {
     case $fetchTasks.REQUEST:
       return {
