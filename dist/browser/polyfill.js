@@ -1,6 +1,6 @@
 "use strict";
 
-require("@babel/polyfill");
+require("core-js/stable");
 
 require("intl");
 

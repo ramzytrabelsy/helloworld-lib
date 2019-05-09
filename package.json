@@ -15,7 +15,7 @@
     "build:watch": "babel -w --source-maps true ./src/ -d ./dist/"
   },
   "dependencies": {
-    "@babel/polyfill": "~7.4.4",
+    "core-js": "~3.0.1",
     "debug": "~4.1.1",
     "events": "~3.0.0",
     "intl": "~1.2.5",
