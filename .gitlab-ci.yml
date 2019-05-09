@@ -23,8 +23,6 @@ lint-critical:
   stage: lint
   tags:
     - docker
-  before_script:
-  - npm install
   script:
     - npm run lint:critical
 
@@ -32,8 +30,6 @@ lint:
   stage: lint
   tags:
     - docker
-  before_script:
-  - npm install
   script:
     - npm run lint
   allow_failure: true
@@ -45,8 +41,6 @@ test:
   services:
     - name: kennethreitz/httpbin
       alias: httpbin
-  before_script:
-  - npm install
   script:
     - export FETCH_HELPER_TEST_ENDPOINT='http://httpbin'
     - npm run test
@@ -55,8 +49,6 @@ build:
   stage: build
   tags:
     - docker
-  before_script:
-  - npm install
   script:
     - npm run build
     - npm pack

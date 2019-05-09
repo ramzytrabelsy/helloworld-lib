@@ -16,7 +16,7 @@ test('FetchHelper.toQueryString with empty payload', () => {
 
 test('FetchHelper.toQueryString with flat payload', () => {
   const input = {
-    undefined: undefined,
+    undefined,
     null: null,
     boolean1: false,
     boolean2: true,
