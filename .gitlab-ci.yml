@@ -52,3 +52,7 @@ build:
   script:
     - npm run build
     - npm pack
+    - cp $(node -e 'p=require("./package.json");console.log(p.name+"-"+p.version+".tgz")') helloworld-lib.tgz
+  artifacts:
+    paths:
+      - ./helloworld-lib.tgz
