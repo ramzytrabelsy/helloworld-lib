@@ -5,7 +5,7 @@
 ### Import
 
 ```javascript
-import * as FetchHelper from 'helloworld-lib/dist/common/fetch.helper';
+import * as FetchHelper from '../common/fetch.helper';
 ```
 
 ### `FetchHelper.ResponseHandler`
@@ -22,8 +22,8 @@ try {
   const response = await fetch('https://httpbin.org/ip');
   const result = await FetchHelper.ResponseHandler(response);
   console.log(result);
-} catch (error) {
-  error = FetchHelper.ErrorValueHandler(error);
+} catch (_error) {
+  const error = FetchHelper.ErrorValueHandler(_error);
   console.error(error, error.extra);
 }
 ```

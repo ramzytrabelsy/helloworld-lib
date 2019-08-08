@@ -13,20 +13,20 @@ cp "${PACKAGE_NAME}-${PACKAGE_VERSION}.tgz" "${PACKAGE_NAME}.tgz"
 TARGETS=(
   'helloworld-express'
   'helloworld-vue'
-  'helloworld-react-material'
-  'helloworld-react-antd'
+  'helloworld-react'
   'helloworld-react-native'
 )
 
 for project in "${TARGETS[@]}"; do
-    mkdir -p "../${project}/lib"
-    cp "./${PACKAGE_NAME}.tgz" "../${project}/lib/${PACKAGE_NAME}.tgz"
-    (
-      cd "../${project}"
-      if [ -f yarn.lock ]; then
-        yarn add "file:lib/${PACKAGE_NAME}.tgz"
-      else
-        npm install "file:lib/${PACKAGE_NAME}.tgz"
-      fi
-    )
+  mkdir -p "../${project}/lib"
+  cp "./${PACKAGE_NAME}.tgz" "../${project}/lib/${PACKAGE_NAME}.tgz"
+  (
+    cd "../${project}"
+    if [ -f yarn.lock ]; then
+      rm -fr "$(yarn cache dir)/.tmp" || true
+      yarn add "file:lib/${PACKAGE_NAME}.tgz"
+    else
+      npm install "file:lib/${PACKAGE_NAME}.tgz"
+    fi
+  )
 done

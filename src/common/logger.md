@@ -5,7 +5,7 @@
 Put the following in `./common/logger.js` (and make sure to load this file as early as possible)
 
 ```javascript
-import * as Logger from 'helloworld-lib/dist/common/logger';
+import * as Logger from '../common/logger';
 
 Logger.setup('HelloWorld');
 
@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === 'development') {
 Then use it as follows:
 
 ```javascript
-import * as Logger from 'helloworld-lib/dist/common/logger';
+import * as Logger from '../common/logger';
 
 Logger.debug('test');
 // prints `HelloWorld DEBUG +0ms test` to stdout

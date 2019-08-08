@@ -5,13 +5,13 @@
 ### Import
 
 ```javascript
-import * as StateHelper from 'helloworld-lib/dist/redux/state.helper';
+import * as StateHelper from '../redux/state.helper';
 ```
 
 ### `StateHelper.createSimpleOperation`
 
 ```javascript
-const MODULE = 'Task';
+const MODULE = 'Post';
 
 const defineInitialState = () => ({
   item: null,
@@ -21,7 +21,7 @@ const $selectItem = StateHelper.createSimpleOperation(MODULE, 'selectItem', (ite
   return (dispatch) => {
     dispatch($selectItem.action({ item  }));
 
-    return fetch(`${API_ENDPOINT}/task/${item.id}`)
+    return fetch(`${API_ENDPOINT}/post/${item.id}`)
       .then(FetchHelper.ResponseHandler, FetchHelper.ErrorHandler)
       .then((result) => dispatch($selectItem.action({ item: result.item }));
   };
@@ -45,43 +45,43 @@ export function reducer(state = defineInitialState(), action) {
 ### `StateHelper.createAsyncOperation`
 
 ```javascript
-const MODULE = 'Task';
+const MODULE = 'Post';
 
 const defineInitialState = () => ({
-  tasks: null,
+  posts: null,
 });
 
-const $fetchTasks = StateHelper.createAsyncOperation(MODULE, 'fetchTasks', () => {
+const $fetchPosts = StateHelper.createAsyncOperation(MODULE, 'fetchPosts', () => {
   return (dispatch) => {
-    dispatch($fetchTasks.request());
-    return fetch(`${API_ENDPOINT}/task`)
+    dispatch($fetchPosts.request());
+    return fetch(`${API_ENDPOINT}/post`)
       .then(FetchHelper.ResponseHandler, FetchHelper.ErrorHandler)
-      .then((result) => dispatch($fetchTasks.success({ tasks: result.data })))
-      .catch((error) => dispatch($fetchTasks.failure(error)));
+      .then((result) => dispatch($fetchPosts.success({ posts: result.data })))
+      .catch((error) => dispatch($fetchPosts.failure(error)));
   };
 });
 
 export function reducer(state = defineInitialState(), action) {
   switch (action.type) {
-    case $fetchTasks.REQUEST:
+    case $fetchPosts.REQUEST:
       return {
         ...state,
-        tasks: null,
+        posts: null,
       };
-    case $fetchTasks.SUCCESS:
+    case $fetchPosts.SUCCESS:
       return {
         ...state,
-        tasks: action.tasks,
+        posts: action.posts,
       };
-    case $fetchTasks.FAILURE:
+    case $fetchPosts.FAILURE:
       return {
         ...state,
-        tasks: null,
+        posts: null,
       };
     default:
       return state;
   }
 }
 
-// `dispatch($fetchTasks())` in components
+// `dispatch($fetchPosts())` in components
 ```

@@ -3,7 +3,7 @@
 ## Usage
 
 ```javascript
-import $intl from 'helloworld-lib/dist/common/intl';
+import $intl from '../common/intl';
 
 $intl.current.$t('Log in');
 // return translated text

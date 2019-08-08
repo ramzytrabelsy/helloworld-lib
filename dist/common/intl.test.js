@@ -5,10 +5,11 @@ var _require = require('./intl'),
     defineLocale = _require.defineLocale,
     $intl = _require.default;
 
-$intl.current = $intl.fr = defineLocale('fr', {
+$intl.fr = defineLocale('fr', {
   timeZone: 'Europe/Paris',
   currency: 'EUR'
 });
+$intl.current = $intl.fr;
 $intl.current.setTranslations({
   'Welcome %{}': 'Bienvenu %{}'
 });

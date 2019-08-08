@@ -1,4 +1,6 @@
-const CONST = (module.exports = {});
+const CONST = {};
+
+module.exports = CONST;
 
 CONST.normalize = function (value, valueMap, defaultValue) {
   if (typeof value === 'string') {

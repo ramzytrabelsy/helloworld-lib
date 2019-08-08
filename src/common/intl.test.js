@@ -2,10 +2,12 @@
 
 const { defineLocale, default: $intl } = require('./intl');
 
-$intl.current = $intl.fr = defineLocale('fr', {
+$intl.fr = defineLocale('fr', {
   timeZone: 'Europe/Paris',
   currency: 'EUR',
 });
+
+$intl.current = $intl.fr;
 
 $intl.current.setTranslations({
   'Welcome %{}': 'Bienvenu %{}',

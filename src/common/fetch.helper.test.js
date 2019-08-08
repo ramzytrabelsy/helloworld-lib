@@ -236,8 +236,8 @@ test('FetchHelper async/await success example', async () => {
     const result = await FetchHelper.ResponseHandler(response);
 
     expect(result.origin).toMatch(ORIGIN_REGEXP);
-  } catch (error) {
-    error = FetchHelper.ErrorValueHandler(error);
+  } catch (_error) {
+    const error = FetchHelper.ErrorValueHandler(_error);
 
     throw error;
   }
@@ -247,8 +247,8 @@ test('FetchHelper async/await failure example', async () => {
   try {
     const response = await fetch(`${ENDPOINT}/status/400`);
     const result = await FetchHelper.ResponseHandler(response);
-  } catch (error) {
-    error = FetchHelper.ErrorValueHandler(error);
+  } catch (_error) {
+    const error = FetchHelper.ErrorValueHandler(_error);
 
     expect(error.code).toBe('Invalid');
     expect(error.message).toBe('Invalid request');

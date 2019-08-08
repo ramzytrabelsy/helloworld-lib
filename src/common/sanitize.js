@@ -2,6 +2,6 @@
  * Sanitation
  */
 
-export function phone(value) {
+export function email(value) {
   return value.trim().toLowerCase();
 }

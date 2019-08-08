@@ -14,9 +14,6 @@ A collection of common utilities.
 # install dependencies
 npm install
 
-# lint code for critical issues
-npm run lint:critical
-
 # lint code
 npm run lint
 

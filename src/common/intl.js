@@ -20,7 +20,9 @@ export function defineLocale(localeCode, defaults = {}) {
 
     $t(text, ...args) {
       text = translations[text] || text;
-      args.forEach((arg) => (text = text.replace('%{}', arg)));
+      args.forEach((arg) => {
+        text = text.replace('%{}', arg);
+      });
       return text;
     },
 

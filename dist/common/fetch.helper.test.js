@@ -191,7 +191,7 @@ test('FetchHelper async/await success example',
 _asyncToGenerator(
 /*#__PURE__*/
 regeneratorRuntime.mark(function _callee() {
-  var response, result;
+  var response, result, error;
   return regeneratorRuntime.wrap(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -214,8 +214,8 @@ regeneratorRuntime.mark(function _callee() {
         case 10:
           _context.prev = 10;
           _context.t0 = _context["catch"](0);
-          _context.t0 = FetchHelper.ErrorValueHandler(_context.t0);
-          throw _context.t0;
+          error = FetchHelper.ErrorValueHandler(_context.t0);
+          throw error;
 
         case 14:
         case "end":
@@ -229,7 +229,7 @@ test('FetchHelper async/await failure example',
 _asyncToGenerator(
 /*#__PURE__*/
 regeneratorRuntime.mark(function _callee2() {
-  var response, result;
+  var response, result, error;
   return regeneratorRuntime.wrap(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
@@ -251,10 +251,10 @@ regeneratorRuntime.mark(function _callee2() {
         case 9:
           _context2.prev = 9;
           _context2.t0 = _context2["catch"](0);
-          _context2.t0 = FetchHelper.ErrorValueHandler(_context2.t0);
-          expect(_context2.t0.code).toBe('Invalid');
-          expect(_context2.t0.message).toBe('Invalid request');
-          expect(_context2.t0.extra.text).toBe('');
+          error = FetchHelper.ErrorValueHandler(_context2.t0);
+          expect(error.code).toBe('Invalid');
+          expect(error.message).toBe('Invalid request');
+          expect(error.extra.text).toBe('');
 
         case 15:
         case "end":

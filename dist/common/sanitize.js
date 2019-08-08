@@ -3,12 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.phone = phone;
+exports.email = email;
 
 /**
  * Sanitation
  */
-function phone(value) {
+function email(value) {
   return value.trim().toLowerCase();
 }
 //# sourceMappingURL=sanitize.js.map

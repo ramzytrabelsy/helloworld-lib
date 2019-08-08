@@ -1,6 +1,7 @@
 "use strict";
 
-var CONST = module.exports = {};
+var CONST = {};
+module.exports = CONST;
 
 CONST.normalize = function (value, valueMap, defaultValue) {
   if (typeof value === 'string') {
