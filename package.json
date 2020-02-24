@@ -3,7 +3,7 @@
   "name": "helloworld-lib",
   "version": "0.22.0",
   "engines": {
-    "node": "^13.9.0",
+    "node": "^13.5.0",
     "npm": "^6.13.7"
   },
   "scripts": {
